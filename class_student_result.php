@@ -88,7 +88,7 @@ table.center {
 	  	       <table>
 	  	       <tr>
 	  	       <td> <div align="left"> <?php
-	  	        echo " <b>Total maximum marks ".$maximum_total."<br>";
+	  	        echo " <b>Total maximum marks ".$maximum_total;
 	  	        echo " / ".$student_total." = ".$percentage."<b>";?></div></td>
                </tr>
                </table>
