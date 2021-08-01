@@ -20,7 +20,8 @@ if(isset($_GET['uid']) && !empty($_GET['uid'])){
      // echo $maximum_total;
       $student_total = array_sum($student_marks);// total marks
      //echo $student_total;
-      $percentage = $student_total*100/$maximum_total."%";// percentage calculate
+     $percentage = round($student_total*100/$maximum_total."%");// percentage calculate 
+       
   }
 
 
@@ -32,23 +33,62 @@ if(isset($_GET['uid']) && !empty($_GET['uid'])){
 	<meta charset="utf-8">
 	<title>Result</title>
 	<style type="text/css">
-         
+       div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}  
 table.center {
   margin-left: auto; 
   margin-right: auto;
 }
+table,th,td{
+       text-align: center;
+   }
+   .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
 </style>
 </head>
 <body>
 	       <h1 style="text-align:center">University Of Mumbai</h1>
 
-	  	      <div align="center"> <label>Name  </label><input value="<?php echo $result[0]['student_name'];?>">
+	  	      <div align="center"> <label>Name</label><input value="<?php echo $result[0]['student_name'];?>">
 	  	       <label>Class Name</label><input value="<?php echo $result[0]['class_name'];?>">
 	  	   </div>
-	  	       <table class="center" border="1" style="width: 50%;" style="text-align:center;">
+	  	       <table id="customers" class="center" border="1" style="width: 50%;" style="text-align:center;">
+	  	       	     
 	  	       	       <tr style="text-align:center;">
-	  	       	       	   <th>Subject Name</th>
+	  	       	       	   <th class="th">Subject Name</th>
 	  	       	       	   <th>Passing Marks</th>
 	  	       	       	   <th>Maximum Marks</th>
 	  	       	       	   <th>Marks Obtained</th>
@@ -64,7 +104,7 @@ table.center {
                          
                     	?>
                         <tr>
-	  	       	       	   <td><?php echo $subject;?></td>
+	  	       	       	   <td class="td"><?php echo $subject;?></td>
 	  	       	       	   <td><?php echo $passing_marks[$k];?></td>
 	  	       	       	   <td><?php echo $maximum_marks[$k];?></td>
 	  	       	       	   <td><?php echo $student_marks[$k];?></td>
@@ -88,12 +128,15 @@ table.center {
 	  	       <table>
 	  	       <tr>
 	  	       <td> <div align="left"> <?php
-	  	        echo " <b>Total maximum marks ".$maximum_total;
-	  	        echo " / ".$student_total." = ".$percentage."<b>";?></div></td>
+	  	        echo " <b>Total Marks ".$maximum_total;
+	  	        echo " / ".$student_total." = ".$percentage."%"."<b>";
+
+	  	        ?>
+	  	         </div></td>
                </tr>
                </table>
                </div>
-	  	<div align="center"> <a href="index.php">student details</a></div>
+	  	<div align="center"> <a class="button" href="index.php" style="text-decoration:none;">student details</a></div>
 
 </body>
 </html>
