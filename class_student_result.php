@@ -20,7 +20,7 @@ if(isset($_GET['uid']) && !empty($_GET['uid'])){
      // echo $maximum_total;
       $student_total = array_sum($student_marks);// total marks
      //echo $student_total;
-
+      $percentage = $student_total*100/$maximum_total."%";// percentage calculate
   }
 
 
@@ -88,8 +88,8 @@ table.center {
 	  	       <table>
 	  	       <tr>
 	  	       <td> <div align="left"> <?php
-	  	        echo " Total maximum marks ".$maximum_total."<br>";
-	  	        echo " Total obtained marks ".$student_total;?></div></td>
+	  	        echo " <b>Total maximum marks ".$maximum_total."<br>";
+	  	        echo " / ".$student_total." = ".$percentage."<b>";?></div></td>
                </tr>
                </table>
                </div>
